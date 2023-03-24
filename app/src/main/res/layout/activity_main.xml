@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,10 +10,10 @@
     >
 
     <TextView
-        android:id="@+id/number_textview"
+        android:id="@+id/numberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="0"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,35 +21,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/userinput_editText"
+        android:id="@+id/userInputEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:digits="0123456789"
         android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/plus_btn"
+        app:layout_constraintEnd_toStartOf="@+id/plusBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/numberTextView" />
 
     <Button
-        android:id="@+id/plus_btn"
+        android:id="@+id/plusBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="더하기"
         android:layout_marginHorizontal="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/minus_btn"
+        app:layout_constraintEnd_toStartOf="@+id/minusBtn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/userinput_editText"
-        app:layout_constraintTop_toTopOf="@+id/userinput_editText" />
+        app:layout_constraintStart_toEndOf="@+id/userInputEditText"
+        app:layout_constraintTop_toTopOf="@+id/userInputEditText" />
 
     <Button
-        android:id="@+id/minus_btn"
+        android:id="@+id/minusBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="빼기"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/plus_btn"
-        app:layout_constraintTop_toTopOf="@+id/userinput_editText" />
+        app:layout_constraintStart_toEndOf="@+id/plusBtn"
+        app:layout_constraintTop_toTopOf="@+id/userInputEditText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
