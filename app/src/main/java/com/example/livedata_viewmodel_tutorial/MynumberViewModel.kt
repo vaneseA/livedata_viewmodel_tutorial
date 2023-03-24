@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 enum class ActionType {
-    PLUS,MINUS
+    COUNTPLUS,COUNTMINUS,WEIGHTPLUS,WEIGHTMINUS
 
 }
 //데이터의 변경
@@ -23,23 +23,35 @@ class MynumberViewModel : ViewModel() {
 
     //내부에서도 설정하는 자료형은 뮤터블로
     //변경가능하도록 설정
-    private val _currentValue = MutableLiveData<Int>()
+    private val _currentWeightValue = MutableLiveData<Int>()
+    private val _currentCountValue = MutableLiveData<Int>()
 
-    val currentValue: LiveData<Int>
-        get() = _currentValue
+
+
+    val currentWeightValue: LiveData<Int>
+        get() = _currentWeightValue
+
+    val currentCountValue: LiveData<Int>
+        get() = _currentCountValue
 
     //초기값 설정
     init {
         Log.d(TAG, "MynumberViewModel - 생성자 호출 ")
-        _currentValue.value = 0
+        _currentWeightValue.value = 0
+        _currentCountValue.value = 0
     }
 
     fun updateValue(actionType: ActionType, input: Int){
         when(actionType){
-            ActionType.PLUS ->
-                _currentValue.value = _currentValue.value?.plus(input)
-            ActionType.MINUS ->
-                _currentValue.value = _currentValue.value?.minus(input)
+            ActionType.WEIGHTPLUS ->
+                _currentWeightValue.value = _currentWeightValue.value?.plus(input)
+            ActionType.WEIGHTMINUS ->
+                _currentWeightValue.value = _currentWeightValue.value?.minus(input)
+            ActionType.COUNTPLUS ->
+                _currentCountValue.value = _currentCountValue.value?.plus(input)
+            ActionType.COUNTMINUS ->
+                _currentCountValue.value = _currentCountValue.value?.minus(input)
+
         }
     }
 

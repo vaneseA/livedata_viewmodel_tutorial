@@ -1,57 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:paddingHorizontal="10dp">
-    >
+    android:layout_height="500dp"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_dialog_rounded">
+
 
     <TextView
-        android:id="@+id/numberTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/userInputWeight"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="30dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="8dp"
+        android:digits="0123456789."
+        android:inputType="number"
+        android:gravity="center"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialogSet" />
+
+
+    <TextView
+        android:id="@+id/userInputCount"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:digits="0123456789"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="3"
+        app:fontFamily="@font/jalnanche"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialogSet"
+        app:layout_constraintVertical_bias="0.507" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회"
+        android:textSize="24dp"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/userInputCount"
+        app:layout_constraintTop_toBottomOf="@+id/dialogSet"
+        app:layout_constraintVertical_bias="0.511" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="kg"
+        android:textSize="24dp"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/userInputCount"
+        app:layout_constraintHorizontal_bias="0.659"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialogSet"
+        app:layout_constraintVertical_bias="0.505" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="x"
+        android:textSize="20sp"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/userInputCount"
+        app:layout_constraintTop_toBottomOf="@+id/dialogSet"
+        app:layout_constraintVertical_bias="0.505" />
+
+    <TextView
+        android:id="@+id/dialogExerciseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:text="운동이름"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:fontFamily="@font/jalnanche"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/userInputEditText"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/dialogExerciseType"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:digits="0123456789"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/plusBtn"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:text="운동종류"
+        android:textColor="@color/gray"
+        android:textSize="15dp"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintStart_toEndOf="@+id/dialogExerciseName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dialogSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="1번째 세트 추가"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:fontFamily="@font/jalnanche"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/dialogExerciseName" />
 
-    <Button
-        android:id="@+id/plusBtn"
+    <RadioGroup
+        android:id="@+id/radio_group_set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="더하기"
-        android:layout_marginHorizontal="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/minusBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/userInputEditText"
-        app:layout_constraintTop_toTopOf="@+id/userInputEditText" />
-
-    <Button
-        android:id="@+id/minusBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="빼기"
+        android:layout_marginStart="100dp"
+        android:layout_toRightOf="@id/dialogSet"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/plusBtn"
-        app:layout_constraintTop_toTopOf="@+id/userInputEditText" />
+        app:layout_constraintStart_toEndOf="@+id/dialogSet"
+        app:layout_constraintTop_toBottomOf="@+id/dialogExerciseName">
 
+        <RadioButton
+            android:id="@+id/rbProfileSet_Female"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/radionbutton_kg"
+            android:button="@android:color/transparent"
+            android:ems="4"
+            android:fontFamily="@font/jalnanche"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="kg"
+            android:textColor="@color/selector_text_color_radiobutton"
+            app:layout_constraintEnd_toStartOf="@+id/lb"
+            app:layout_constraintStart_toEndOf="@+id/dialogSet"
+            tools:layout_editor_absoluteY="128dp" />
+
+        <RadioButton
+            android:id="@+id/lb"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/radionbutton_lb"
+            android:button="@android:color/transparent"
+            android:checked="true"
+            android:ems="4"
+            android:fontFamily="@font/jalnanche"
+            android:gravity="center"
+            android:text="lb"
+            android:textColor="@color/selector_text_color_radiobutton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rbProfileSet_Female"
+            tools:layout_editor_absoluteY="128dp" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/dialogCancleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/white"
+        android:text="닫기"
+        android:textColor="@color/maincolor"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userInputCount" />
+
+    <Button
+        android:id="@+id/dialogAddBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="80dp"
+        android:backgroundTint="@color/maincolor"
+        android:text="+ 세트 추가"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dialogCancleBtn"
+        app:layout_constraintTop_toBottomOf="@+id/userInputCount" />
+
+    <TextView
+        android:id="@+id/plusOneBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ 1"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toTopOf="@+id/dialogAddBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/userInputWeight"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group_set" />
+
+    <TextView
+        android:id="@+id/minusOneBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="- 1"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toBottomOf="@+id/dialogAddBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/userInputWeight"
+        app:layout_constraintTop_toTopOf="@+id/plusOneBtn" />
+
+    <TextView
+        android:id="@+id/plusFiveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ 5.0"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toTopOf="@+id/dialogCancleBtn"
+        app:layout_constraintEnd_toStartOf="@+id/userInputCount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group_set" />
+
+    <TextView
+        android:id="@+id/minusFiveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="- 5.0"
+        app:fontFamily="@font/jalnanche"
+        app:layout_constraintBottom_toBottomOf="@+id/dialogCancleBtn"
+        app:layout_constraintEnd_toStartOf="@+id/userInputCount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/plusFiveBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
